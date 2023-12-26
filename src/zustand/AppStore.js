@@ -9,6 +9,7 @@ const AppStore = create((set) => ({
     apiKey : 'dc7dbec97d32a97d61bd1f9a13cf83f4',
     accesToken : token,
     genres:null,
+    token : token,
     getGenres : (url) => {
         axios
       .get(url,{
@@ -19,7 +20,19 @@ const AppStore = create((set) => ({
       })
       .then((res) => set({genres : res.data}))
       .catch((err) => console.log(err));
-    }
+    },
+    getTrendings : (url) => {
+      return new Promise((resolve,reject) => {
+        axios.get(url,{
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => resolve(res.data.results))
+        .catch((err) => reject(err))
+      })
+    } ,
   }))
 
   export default AppStore

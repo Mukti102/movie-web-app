@@ -17,22 +17,15 @@ function Caraosel() {
     width: "100%",
   };
   return (
-    <div className="w-full h-80 bg-green-500">
+    <div className="w-full h-80 mb-20">
       <Slider {...settings}>
-        <div className="w-full h-80 overflow-hidden">
-          <img
-            src="https://www.kome-world.com/media/image/2020-03/_16-9_10255.jpg"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="w-full h-80 overflow-hidden">
-          <img
-            src="https://wallpapercave.com/wp/wp11517547.jpg"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <div className="w-full h-96 overflow-hidden bg-[url('https://movieflix-web.vercel.app/pictures/swiper/1.jpg')] bg-cover bg-top"></div>
+        <div className="w-full h-96 overflow-hidden bg-[url('https://wallpapercave.com/wp/wp5536421.jpg')] bg-cover bg-top"></div>
+        <div className="w-full h-96 overflow-hidden bg-[url('https://wallpapercave.com/wp/wp6240532.jpg')] bg-cover bg-top"></div>
+        <div className="w-full h-96 overflow-hidden bg-[url('https://www.nawpic.com/media/2020/blackpink-nawpic-48.jpg')] bg-center bg-cover"></div>
+        <div className="w-full h-96 overflow-hidden bg-[url('https://wallpapercave.com/wp/wp12208903.jpg')] bg-top bg-cover"></div>
+        <div className="w-full h-96 overflow-hidden bg-[url('https://wallpapercave.com/wp/wp12567228.jpg')] bg-center bg-cover"></div>
+        <div className="w-full h-96 overflow-hidden bg-[url('https://movieflix-web.vercel.app/pictures/swiper/4.jpg')] bg-center bg-cover"></div>
       </Slider>
     </div>
   );

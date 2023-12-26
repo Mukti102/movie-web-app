@@ -3,7 +3,7 @@ import Sidebar from "../organisms/Sidebar";
 import Main from "../organisms/Main";
 function Home() {
   return (
-    <div className="w-full flex h-screen bg-slate-900">
+    <div className="w-full flex h-screen">
       <Sidebar />
       <Main />
     </div>
