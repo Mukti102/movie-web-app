@@ -1,14 +1,10 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { handleLongContent } from "../functions/handleName";
+import { useParams } from "react-router-dom";
 function Card({ img, title, date, id }) {
-  const handleLongTitle = (title) => {
-    if (title.length > 15) {
-      return `${title.slice(0, 15)}...`;
-    } else {
-      return title;
-    }
-  };
+  const params = useParams();
   return (
     <Link
       to={`watch/${id}/movie/${title}`}
@@ -23,7 +19,7 @@ function Card({ img, title, date, id }) {
       </div>
       <div className="w-full h-[15%] py-[2px]">
         <h1 className=" font-semibold text-[14px] dark:text-white group-hover:text-pink-500 transition-all delay-100 ">
-          {handleLongTitle(title)}
+          {handleLongContent(title, 15)}
         </h1>
         <p className="text-[11px] dark:text-[#bbb] text-slate-500 font-normal">
           {date}

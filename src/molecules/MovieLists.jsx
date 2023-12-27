@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import AppStore from "../zustand/AppStore";
 import Card from "../atoms/Card";
 function MovieLists({ url, listName }) {
-  const getTrending = AppStore((state) => state.getTrendings);
+  const getTrending = AppStore((state) => state.getRequest);
   const [trendings, setTrendings] = useState([]);
   useEffect(() => {
     const fetchTrendings = async () => {
@@ -15,8 +15,7 @@ function MovieLists({ url, listName }) {
       }
     };
     fetchTrendings();
-  }, []);
-  console.log(trendings);
+  }, [url]);
   return (
     <div className="w-full mt-6">
       <h1 className="text-whhite text-3xl font-bold dark:text-white">

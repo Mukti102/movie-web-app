@@ -21,7 +21,7 @@ const AppStore = create((set) => ({
       .then((res) => set({genres : res.data}))
       .catch((err) => console.log(err));
     },
-    getTrendings : (url) => {
+    getRequest : (url) => {
       return new Promise((resolve,reject) => {
         axios.get(url,{
           headers: {

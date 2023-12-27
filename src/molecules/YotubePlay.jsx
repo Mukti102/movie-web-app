@@ -1,12 +1,16 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import YouTube from "react-youtube";
+
 function YotubePlay({ id, movieId }) {
   const [movieDetail, setMovieDetail] = useState("");
+  const youtubeRef = useRef();
+  const youtubeId = youtubeRef.current?.props.videoId;
   const YoutubeStyle = {
-    height: "440",
-    width: "810",
+    height: "430",
+    width: "790",
   };
+
   useEffect(() => {
     const fetchDetail = async () => {
       axios
@@ -33,17 +37,21 @@ function YotubePlay({ id, movieId }) {
         });
     };
     fetchDetail();
-  }, []);
-  console.log(movieDetail);
+  }, [id, movieId, youtubeId]); // Include youtubeKey in the dependency array
+
   return (
-    <div className="flex-1">
-      <YouTube videoId={movieId} opts={YoutubeStyle} />
+    <div className="flex-1 pr-6 border-r-[1.4px] dark:border-slate-600">
+      <YouTube videoId={movieId} opts={YoutubeStyle} ref={youtubeRef} />
       <div className="mt-3">
-        <h1 className="text-3xl my-1 font-bold text-black">
+        <h1 className="text-3xl my-1 font-bold text-black dark:text-white">
           {movieDetail.title}
         </h1>
-        <span className="text-sm">{movieDetail.date}</span>
-        <p className="mt-3 text-[16px]">{movieDetail.content}</p>
+        <span className="text-sm font-light dark:text-slate-400">
+          {movieDetail.date}
+        </span>
+        <p className="mt-3 text-[16px] font-light text-[#111] dark:text-slate-400">
+          {movieDetail.content}
+        </p>
       </div>
     </div>
   );
