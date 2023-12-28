@@ -33,7 +33,7 @@ function Preview() {
     fetch();
   }, [params]);
   return (
-    <div className="w-full px-5 py-3 bg-white dark:bg-slate-900">
+    <div className="w-full h-full px-5 py-3 bg-white dark:bg-slate-900">
       <Header />
       <div className="w-full sm:flex block mt-8">
         <YotubePlay movieId={movieId} id={id} Loading={isLoading} />
