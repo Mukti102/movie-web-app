@@ -11,8 +11,8 @@ function Logo() {
   const open = AppStore((state) => state.setSidebar);
   const sidebard = AppStore((state) => state.sidebar);
   return (
-    <div className="flex gap-1 pr-3 w-24  items-center justify-start dark:text-slate-100 ">
-      <div className="w-7">
+    <div className="flex gap-1 pr-3 sm:w-40 sm:gap-2  w-24  items-center justify-start dark:text-slate-100 ">
+      <div className="w-6 pb-2">
         <img
           src={movieDark}
           alt=""
