@@ -8,6 +8,7 @@ function Home() {
     <div className="sm:flex sm:w-full block w-screen h-screen">
       <Sidebar />
       <Outlet />
+      <Footer />
     </div>
   );
 }

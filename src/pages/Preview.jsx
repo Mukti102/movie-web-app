@@ -6,6 +6,7 @@ import Header from "../molecules/Header";
 import AppStore from "../zustand/AppStore";
 import YotubePlay from "../molecules/YotubePlay";
 import RelatedMovies from "../molecules/RelatedMovies";
+import Footer from "../organisms/Footer";
 function Preview() {
   const api_key = AppStore((state) => state.apiKey);
   const params = useParams();
@@ -38,6 +39,7 @@ function Preview() {
         <YotubePlay movieId={movieId} id={id} Loading={isLoading} />
         <RelatedMovies id={id} />
       </div>
+      <Footer />
     </div>
   );
 }
