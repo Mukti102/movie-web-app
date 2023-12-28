@@ -4,6 +4,7 @@ import Preview from "./pages/Preview";
 import Main from "./organisms/Main";
 import MainHome from "./atoms/Main/MainHome";
 import MainSearch from "./atoms/Main/MainSearch";
+import MainGenres from "./atoms/Main/MainGenres";
 function App() {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Main />}>
             <Route index element={<MainHome />} />
             <Route path="search/:movie" element={<MainSearch />} />
+            <Route path="genres/:genre" element={<MainGenres />} />
           </Route>
         </Route>
         <Route path="watch/:id/movie/:title" element={<Preview />} />
@@ -19,6 +21,7 @@ function App() {
           path="search/:movie/watch/:id/movie/:title"
           element={<Preview />}
         />
+        <Route path="genres/:id/watch/:id/movie/:title" element={<Preview />} />
       </Routes>
     </BrowserRouter>
   );

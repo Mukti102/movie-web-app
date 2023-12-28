@@ -1,14 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import YouTube from "react-youtube";
+import YoutubeLoad from "../Skeleton/YoutubeLoad";
+import { Link } from "react-router-dom";
+import "../index.css";
 
-function YotubePlay({ id, movieId }) {
+function YotubePlay({ id, movieId, Loading }) {
   const [movieDetail, setMovieDetail] = useState("");
   const youtubeRef = useRef();
   const youtubeId = youtubeRef.current?.props.videoId;
   const YoutubeStyle = {
-    height: "430",
-    width: "790",
+    height: "450",
+    width: "100%",
+  };
+  const YoutubeStyleMobile = {
+    height: "200",
+    width: "100%",
   };
 
   useEffect(() => {
@@ -23,6 +30,7 @@ function YotubePlay({ id, movieId }) {
         })
         .then((result) => {
           const data = result.data;
+          console.log(data);
           const selectedDetail = {
             genres: data.genres,
             title: data.original_title,
@@ -38,21 +46,53 @@ function YotubePlay({ id, movieId }) {
     };
     fetchDetail();
   }, [id, movieId, youtubeId]); // Include youtubeKey in the dependency array
-
   return (
-    <div className="flex-1 pr-6 border-r-[1.4px] dark:border-slate-600">
-      <YouTube videoId={movieId} opts={YoutubeStyle} ref={youtubeRef} />
-      <div className="mt-3">
-        <h1 className="text-3xl my-1 font-bold text-black dark:text-white">
-          {movieDetail.title}
-        </h1>
-        <span className="text-sm font-light dark:text-slate-400">
-          {movieDetail.date}
-        </span>
-        <p className="mt-3 text-[16px] font-light text-[#111] dark:text-slate-400">
-          {movieDetail.content}
-        </p>
-      </div>
+    <div className="flex-auto sm:w-[80%] w-[100%]  sm:pr-5 px-0 dark:border-slate-600">
+      {Loading ? (
+        <YoutubeLoad />
+      ) : (
+        <>
+          <div className="sm:w-[800px] w-full sm:h-[450px]">
+            <div className="dekstop-youtube">
+              {/* dekstop */}
+              <YouTube videoId={movieId} opts={YoutubeStyle} ref={youtubeRef} />
+            </div>
+            <div className="mobile-youtube">
+              {/* Mobile */}
+              <YouTube
+                videoId={movieId}
+                opts={YoutubeStyleMobile}
+                ref={youtubeRef}
+              />
+            </div>
+          </div>
+          <div className="mt-3">
+            <h1 className="sm:text-3xl text-2xl my-1 font-bold text-black dark:text-white">
+              {movieDetail.title}
+            </h1>
+            <div className="w-full block">
+              <div className="text-sm font-light dark:text-slate-400">
+                {movieDetail.date}
+              </div>
+              <div className="mx-0 my-1 text-[14px] font-light dark:text-slate-400">
+                {movieDetail?.genres?.map((item) => {
+                  return (
+                    <Link
+                      to={`/genres/${item.id}`}
+                      className="sm:mx-1 cursor-pointer hover:text-pink-500 font-normal"
+                    >
+                      {item.name},
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            <p className="mt-3 sm:text-[16px] text-sm mb-3 font-light text-[#111] dark:text-slate-400">
+              {movieDetail.content}
+            </p>
+          </div>
+        </>
+      )}
     </div>
   );
 }

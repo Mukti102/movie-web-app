@@ -4,7 +4,7 @@ import Input from "../atoms/Input";
 import Swap from "../atoms/Swap";
 function Header() {
   return (
-    <div className="w-full flex justify-between">
+    <div className="sm:w-full sm:px-0 px-3 flex justify-between">
       <Logo />
       <Input />
       <Swap />

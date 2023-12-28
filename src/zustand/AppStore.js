@@ -10,6 +10,10 @@ const AppStore = create((set) => ({
     accesToken : token,
     genres:null,
     token : token,
+    sidebar:true,
+    setSidebar : () => {
+      set({sidebar : !AppStore.getState().sidebar})
+    },
     getGenres : (url) => {
         axios
       .get(url,{
@@ -33,6 +37,26 @@ const AppStore = create((set) => ({
         .catch((err) => reject(err))
       })
     } ,
+    getYoutubeId : (url,params) => {
+      return new Promise((resolve,rejected) => {
+        axios
+      .get(url)
+      .then((res) => {
+        return res.data.videos.results;
+      })
+      .then((result) => {
+        const filter = result.find((vid) => vid.name.includes(params.title));
+        if (filter) {
+          resolve(filter.key);
+        } else {
+          resolve(result[0].key);
+        }
+      })
+      .catch((err) => {
+        rejected(err);
+      });
+      })
+    }
   }))
 
   export default AppStore

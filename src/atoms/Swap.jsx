@@ -3,20 +3,22 @@ function Swap() {
   const [dark, setDark] = useState(false);
   const changeMode = () => {
     setDark(!dark);
-    if (dark) {
+    if (!dark) {
       document.documentElement.classList.remove("dark");
+      document.querySelector("html").removeAttribute("data-theme", "dark");
     } else {
       document.documentElement.classList.add("dark");
+      document.querySelector("html").setAttribute("data-theme", "dark");
     }
   };
   return (
-    <label className="swap swap-rotate text-black dark:text-white">
+    <label className="swap swap-rotate  text-black dark:text-white">
       {/* this hidden checkbox controls the state */}
       <input type="checkbox" checked={dark} onChange={changeMode} />
 
       {/* sun icon */}
       <svg
-        className="swap-on fill-current w-8 h-8"
+        className="swap-on fill-current sm:w-8 w-7 h-7 sm:h-8"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -25,7 +27,7 @@ function Swap() {
 
       {/* moon icon */}
       <svg
-        className="swap-off fill-current w-8 h-8"
+        className="swap-off fill-current sm:w-8 sm:h-8 w-7 h-7"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >

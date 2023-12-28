@@ -10,7 +10,7 @@ function MainHome() {
         url={"https://api.themoviedb.org/3/trending/movie/day?language=en-US"}
       />
       <MovieLists
-        listName={"Most Popular"}
+        listName={"Most Popular?"}
         url={"https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"}
       />
       <MovieLists

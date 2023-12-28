@@ -8,7 +8,7 @@ function Card({ img, title, date, id }) {
   return (
     <Link
       to={`watch/${id}/movie/${title}`}
-      className="w-40 rounded-md h-72 cursor-pointer overflow-hidden group"
+      className="sm:w-36 rounded-md sm:h-64 w-[102px] h-48 cursor-pointer overflow-hidden group"
     >
       <div className="w-full h-[85%] overflow-hidden rounded-md shadow-md group-hover:dark:shadow-pink-500 transition-all delay-100">
         <img
@@ -18,10 +18,10 @@ function Card({ img, title, date, id }) {
         />
       </div>
       <div className="w-full h-[15%] py-[2px]">
-        <h1 className=" font-semibold text-[14px] dark:text-white group-hover:text-pink-500 transition-all delay-100 ">
+        <h1 className=" font-semibold sm:text-[14px] text-[10px] dark:text-white group-hover:text-pink-500 transition-all delay-100 ">
           {handleLongContent(title, 15)}
         </h1>
-        <p className="text-[11px] dark:text-[#bbb] text-slate-500 font-normal">
+        <p className="sm:text-[11px] text-[8px] dark:text-[#bbb] text-slate-500 font-normal">
           {date}
         </p>
       </div>

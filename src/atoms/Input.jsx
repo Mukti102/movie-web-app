@@ -8,6 +8,7 @@ function Input() {
   const inputSubmit = (e) => {
     e.preventDefault();
     navigate(`/search/${inputValue}`);
+    setInputValue("");
   };
   const inputChange = (e) => {
     setInputValue(e.target.value);
@@ -21,7 +22,7 @@ function Input() {
           onChange={inputChange}
           type="text"
           placeholder="Search Movie..."
-          className="input input-bordered w-full border border-slate-700 focus:border-slate-200 bg-transparent max-w-xs dark:text-[#fff]"
+          className="input input-border w-full sm:h-12 h-9 border border-slate-700 sm:focus:border-slate-200 sm:placeholder:text-base placeholder:text-sm bg-transparent max-w-xs dark:text-[#fff] sm:text-base text-sm focus:input-border-none focus:h-9"
         />
       </form>
     </div>

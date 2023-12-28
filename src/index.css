@@ -5,19 +5,33 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
+.active{
+  background-color: red;
+}
+.scroll-barr::-webkit-scrollbar{
+  display: none;
+}
+.sambung{
+  background-position: 111% 0;
+}
+.hide{
+  display: none;
+}
+/* index.css or your CSS file */
+.dekstop-youtube {
+  display: block; /* Show for desktop */
+}
 
-/* dark mode */
-.scroll-barr-dark::-webkit-scrollbar-track{
-  background-color: #444;
-}
-.scroll-barr-dark::-webkit-scrollbar-thumb{
-  background-color: #666;
+.mobile-youtube {
+  display: none; /* Hide for desktop */
 }
 
-/* light mode */
-.scroll-barr::-webkit-scrollbar-track{
-  background-color: #ddd;
-}
-.scroll-barr::-webkit-scrollbar-thumb{
-  background-color: #555;
+@media (max-width: 768px) {
+  .dekstop-youtube {
+    display: none; /* Hide for mobile */
+  }
+
+  .mobile-youtube {
+    display: block; /* Show for mobile */
+  }
 }
