@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { handleLongContent } from "../functions/handleName";
 import { useParams } from "react-router-dom";
+import "aos/dist/aos.css";
+import AOS from "aos";
 function Card({ img, title, date, id }) {
   const params = useParams();
   return (

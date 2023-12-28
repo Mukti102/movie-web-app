@@ -32,7 +32,7 @@ function MovieLists({ url, listName }) {
         {listName}
       </h1>
       <hr className="dark:border-slate-700" />
-      <div className="flex min-w-full flex-wrap sm:gap-5 gap-3 justify-start sm:mt-5 mt-3">
+      <div className="flex w-full flex-wrap sm:gap-4 gap-3 justify-start sm:mt-5 mt-3">
         {Loading ? (
           <CardLoad />
         ) : (

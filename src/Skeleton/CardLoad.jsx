@@ -6,7 +6,7 @@ function CardLoad() {
     skeletons.push(
       <div
         key={i}
-        className="sm:w-36 rounded-md sm:h-64 w-[111px] h-52 cursor-pointer overflow-hidden"
+        className="sm:w-36 rounded-md sm:h-64 w-[105px] h-52 cursor-pointer overflow-hidden"
       >
         <div className="w-full rounded-md h-[85%] cursor-pointer overflow-hidden group">
           <div className="bg-[#ddd] mb-4 w-full h-full dark:bg-[#222]"></div>
@@ -22,7 +22,7 @@ function CardLoad() {
       </div>
     );
   }
-  return <div className="flex gap-5 flex-wrap">{skeletons}</div>;
+  return <div className="flex gap-2 flex-wrap">{skeletons}</div>;
 }
 
 export default CardLoad;

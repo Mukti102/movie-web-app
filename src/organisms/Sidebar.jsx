@@ -25,7 +25,7 @@ function Sidebar() {
   }, [params.genre]);
   return (
     <div
-      className={`dark:bg-slate-900 bg-white sm:flex-col sm:flex sm:static  sm:mt-0 mt-0 flex-auto py-3 px-4 sm:h-screen sm:w-[20%] w-full overflow-y-auto scroll-barr-dark absolute  z-40 h-[90%] bottom-0 ${
+      className={`dark:bg-slate-900 bg-white transition-all delay-100 sm:flex-col sm:flex sm:static  sm:mt-0 mt-0 flex-auto py-3 px-4 sm:h-screen sm:w-[20%] w-full overflow-y-auto scroll-barr-dark absolute  z-40 h-[90%] bottom-0 ${
         sidebar ? "-left-[1000px]" : "left-0"
       }`}
     >
