@@ -9,7 +9,7 @@ function Logo() {
   return (
     <div className="flex gap-1 items-center dark:text-slate-100">
       <PiFilmSlateLight className="sm:text-3xl sm:flex hidden text-2xl" />
-      <button onClick={() => open(true)}>
+      <button className="text-black dark:text-white" onClick={() => open(true)}>
         {sidebard ? (
           <GoSidebarCollapse className="sm:hidden text-xl" />
         ) : (
